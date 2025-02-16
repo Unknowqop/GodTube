@@ -1,0 +1,148 @@
+// styles.css
+:root {
+    --primary-color: #4a154b;
+    --secondary-color: #2eb67d;
+    --background-dark: #1a1a1a;
+    --background-light: #2d2d2d;
+    --text-light: #ffffff;
+    --text-gray: #9e9e9e;
+    --accent-color: #e91e63;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--background-dark);
+    color: var(--text-light);
+    line-height: 1.6;
+}
+
+.app-container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Navigation Styles */
+.navbar {
+    background-color: var(--background-light);
+    padding: 1rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.nav-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Main Content */
+main {
+    flex: 1;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .nav-container, main {
+        max-width: 95%;
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-container {
+        flex-direction: column;
+        gap: 1rem;
+    }
+}
+
+// modal.css
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 1000;
+}
+
+.modal-content {
+    background-color: var(--background-light);
+    padding: 2rem;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 400px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+// stream.css
+.stream-view {
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    gap: 1rem;
+    height: calc(100vh - 64px);
+    padding: 1rem;
+}
+
+.stream-player {
+    width: 100%;
+    background-color: var(--background-light);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.chat-container {
+    background-color: var(--background-light);
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+}
+
+// dashboard.css
+.dashboard-container {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    min-height: 100vh;
+}
+
+.dashboard-nav {
+    background-color: var(--background-light);
+    padding: 1rem;
+    border-right: 1px solid var(--text-gray);
+}
+
+.dashboard-content {
+    padding: 2rem;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.stat-card {
+    background-color: var(--background-light);
+    padding: 1.5rem;
+    border-radius: 8px;
+    text-align: center;
+}

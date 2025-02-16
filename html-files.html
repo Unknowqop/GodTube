@@ -1,0 +1,172 @@
+// index.html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StreamConnect</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/modal.css">
+    <link rel="stylesheet" href="../css/stream.css">
+</head>
+<body>
+    <!-- Main Container -->
+    <div class="app-container">
+        <!-- Navigation -->
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-left">
+                    <h1 class="logo">StreamConnect</h1>
+                    <div class="search-container">
+                        <input type="search" placeholder="Buscar streams..." class="search-input">
+                        <i class="search-icon">🔍</i>
+                    </div>
+                </div>
+                
+                <div class="nav-right">
+                    <div class="currency-display hidden" id="currencyDisplay">
+                        <span class="currency-icon">👑</span>
+                        <span id="currencyAmount">0</span> QOP
+                    </div>
+                    <button class="notifications-btn hidden">🔔</button>
+                    <button class="settings-btn hidden">⚙️</button>
+                    <button class="go-live-btn hidden">Go Live</button>
+                    <button class="login-btn" id="loginBtn">Login</button>
+                    <button class="signup-btn" id="signupBtn">Sign Up</button>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main>
+            <!-- Featured Streams -->
+            <section class="featured-streams">
+                <h2>Streams Destacados</h2>
+                <div class="streams-grid" id="featuredStreams"></div>
+            </section>
+
+            <!-- Categories -->
+            <section class="categories">
+                <h2>Categorías Populares</h2>
+                <div class="categories-grid" id="categoriesGrid"></div>
+            </section>
+        </main>
+
+        <!-- Modals -->
+        <div class="modal" id="loginModal">
+            <div class="modal-content">
+                <span class="close-modal">&times;</span>
+                <h2>Iniciar Sesión</h2>
+                <form id="loginForm">
+                    <input type="email" placeholder="Email" required>
+                    <input type="password" placeholder="Contraseña" required>
+                    <button type="submit">Iniciar Sesión</button>
+                    <div class="social-login">
+                        <button type="button" class="google-btn">Google</button>
+                        <button type="button" class="discord-btn">Discord</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Stream View Template -->
+        <template id="streamTemplate">
+            <div class="stream-view hidden">
+                <div class="stream-player">
+                    <video id="streamPlayer" controls></video>
+                    <div class="stream-info">
+                        <h1 class="stream-title"></h1>
+                        <div class="streamer-info">
+                            <img class="streamer-avatar" src="" alt="">
+                            <div class="streamer-details">
+                                <h2 class="streamer-name"></h2>
+                                <span class="viewer-count"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="chat-container">
+                    <div class="chat-messages" id="chatMessages"></div>
+                    <form class="chat-input-form">
+                        <input type="text" placeholder="Enviar mensaje..." class="chat-input">
+                        <button type="submit" class="send-message-btn">Enviar</button>
+                    </form>
+                </div>
+            </div>
+        </template>
+    </div>
+
+    <!-- Scripts -->
+    <script src="../js/config.js"></script>
+    <script src="../js/auth.js"></script>
+    <script src="../js/stream.js"></script>
+    <script src="../js/chat.js"></script>
+    <script src="../js/app.js"></script>
+</body>
+</html>
+
+// dashboard.html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard de Streamer - StreamConnect</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <nav class="dashboard-nav">
+            <h1>Dashboard de Streamer</h1>
+            <div class="nav-links">
+                <a href="#stream">Stream</a>
+                <a href="#stats">Estadísticas</a>
+                <a href="#settings">Configuración</a>
+                <a href="#bots">Bots</a>
+            </div>
+        </nav>
+
+        <main class="dashboard-content">
+            <section id="stream" class="dashboard-section">
+                <h2>Configuración del Stream</h2>
+                <div class="stream-settings">
+                    <div class="stream-key">
+                        <h3>Stream Key</h3>
+                        <input type="password" id="streamKey" readonly>
+                        <button id="showKey">Mostrar</button>
+                        <button id="copyKey">Copiar</button>
+                    </div>
+                    <div class="stream-info-editor">
+                        <input type="text" placeholder="Título del stream">
+                        <select id="category">
+                            <option value="">Seleccionar categoría</option>
+                        </select>
+                        <textarea placeholder="Descripción del stream"></textarea>
+                    </div>
+                </div>
+            </section>
+
+            <section id="stats" class="dashboard-section hidden">
+                <h2>Estadísticas</h2>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <h3>Espectadores</h3>
+                        <p id="viewerCount">0</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Seguidores</h3>
+                        <p id="followerCount">0</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>QOP Recibidos</h3>
+                        <p id="qopCount">0</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="../js/dashboard.js"></script>
+</body>
+</html>
